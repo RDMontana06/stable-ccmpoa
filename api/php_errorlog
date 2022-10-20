@@ -1,0 +1,60 @@
+[17-Jun-2022 10:24:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:173
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 173
+[17-Jun-2022 10:24:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:173
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 173
+[17-Jun-2022 10:24:31 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:173
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 173
+[17-Jun-2022 10:25:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:173
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 173
+[11-Jul-2022 11:31:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:31:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:31:55 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:32:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:36:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:37:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:39:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179
+[11-Jul-2022 11:42:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php:179
+Stack trace:
+#0 /home/customer/www/ccmpoa.org/public_html/api/login.php(25): User->emailExists()
+#1 {main}
+  thrown in /home/customer/www/ccmpoa.org/public_html/api/objects/user.php on line 179

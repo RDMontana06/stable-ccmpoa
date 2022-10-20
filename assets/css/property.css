@@ -1,0 +1,157 @@
+.property-title{
+	font-size: 22px!important;
+    font-weight: 500!important;
+}
+.single-product-row{
+    border-bottom: 1px solid #e8e8e8;
+}
+.seller-posted-by-info{
+	display: flex;
+	align-items: center;
+}
+.seller-posted-by{
+	color: #9f9b99!important;
+	font-size: 15px!important;
+}
+.seller-posted-by-image{
+	width: 40px;
+    border: 1px solid #e3e3e3;
+    border-radius: 50%;
+    padding: 2px;
+}
+.seller-posted-name{
+	color: #000!important;
+}
+.single-label{
+	color:#000!important;
+}
+.product-image img{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width: -webkit-fill-available;
+}
+.single-tag-info{
+	color: #344258;
+}
+.single-location-map{
+	width: -webkit-fill-available;
+	height: 220px;
+}
+.location{
+	display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.search-location{
+	border-bottom: 1px solid #d9d9d9;
+}
+.store-sections .product-card .product-image img{
+	max-width:unset!important;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.product-title{
+	color: #383737!important;
+}
+.posted-by-info{
+	display: flex;
+	align-items: center;
+	border-top: 1px solid #e8e8e8;
+}
+.posted-by{
+	color: #9f9b99!important;
+	font-size: 14px!important;
+}
+.posted-by-image{ 
+	width: 35px;
+    border: 1px solid #e3e3e3;
+    border-radius: 50%;
+    padding: 2px;
+}
+.posted-name{
+	color: #000!important;
+}
+.go-to-products, .heart{
+	margin-top: 5px;
+    width: 35px!important;
+    border-radius: 4px;
+    border: 1px solid #fff;
+}
+.price-classify{
+	color: #000!important;
+}
+.sidebar-image{
+	border: 2px solid #e3e3e3;
+    width: 50px!important;
+    padding: 3px;
+}
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+}
+.product-sub-details{
+	color: #9f9b99;
+    font-size: 14px;
+}
+.pointer{
+	cursor: pointer;
+}
+.like-wrapper .like-button,
+.like-wrapper .like-button .like-overlay{
+	width: 36px!important;
+    height: 36px!important;
+    display: inline-flex!important;
+}
+.card-image img {
+    width: -webkit-fill-available;
+}
+
+/*-- carousel --*/
+.carousel{
+  overflow:hidden;
+}
+.m-padding a{
+  overflow:hidden;
+}
+.card,
+.card-image img{
+	border-radius: 0!important;
+}
+.card-content, .card-content .title, .card-content .subtitle {
+    background-color: #3f3f3f;
+    color: #ccc;
+}
+.slider-navigation-previous {
+  left: 10px;
+}
+.slider-navigation-next {
+    right: 10px;
+}
+.fgr-image {
+    max-height: 570px;
+}
+.slider-navigation-previous{
+	left: 5px!important;
+}
+.slider-navigation-next {
+    right: 5px!important;
+}
+.slider-navigation-next:hover, .slider-navigation-previous:hover{
+	-webkit-transform: scale(1.0)!important;
+    transform: scale(1.0)!important;
+}
+svg polyline{
+	color: #33a968!important;
+}
+
+@media screen and (max-width: 768px){
+	.description, .seller{
+		border-bottom: 1px solid #e3e3e3;
+    	padding-bottom: 10px!important;
+	}
+}
+@media screen and (max-width: 480px){
+	.fgr-image {
+	    height: 200px!important;
+	}
+}
