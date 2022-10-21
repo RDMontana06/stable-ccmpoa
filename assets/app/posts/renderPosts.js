@@ -209,17 +209,6 @@ function addDataToTemplate(content, date, id, totalComments, totalLikes, userID,
             <!-- Post footer -->
             <div class="card-footer">
                 <!-- Followers -->
-                <div class="likers-group">
-                    <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/daniel.jpg" data-user-popover="3" alt="">
-                    <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/elise.jpg" data-user-popover="6" alt="">
-                </div>
-                <div class="likers-text">
-                    <p>
-                        <a href="#">Daniel</a> and
-                        <a href="#">Elise</a>
-                    </p>
-                    <p>liked this</p>
-                </div>
                 <!-- Post statistics -->
                 <div class="social-count">
                     <div class="likes-count">
