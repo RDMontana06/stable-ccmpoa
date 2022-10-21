@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/core.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../node_modules/intro.js/introjs.css">
     <link rel="stylesheet" href="../node_modules/bulma-list/css/bulma-list.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -63,6 +64,11 @@
                 <div id="open-mobile-search" class="navbar-item is-icon">
                     <a class="icon-link is-primary" href="javascript:void(0);">
                         <i data-feather="search"></i>
+                    </a>
+                </div>
+                <div id="open-mobile-search" class="navbar-item is-icon">
+                    <a class="icon-link is-primary" title="Click to tour this page" onclick="tourMarket()" href="javascript:void(0);">
+                        <i data-feather="info"></i>
                     </a>
                 </div>
                 <div id="account-dropdown" class="navbar-item is-account drop-trigger has-caret">
@@ -383,7 +389,7 @@
                                         <div class="column">
                                         </div>
                                         <div class="columns pl-3">
-                                            <div class="column">
+                                            <div class="column" id="price-range">
                                                 <div class="price-data mb-1">
                                                     <input type="number" id="amount_min">
                                                     <input type="number" id="amount_max">
@@ -419,7 +425,7 @@
                                                 
                                                 <!-- -- find the location -->
                                                 <h3 class="search-location has-text-right">
-                                                    <a id="show-modal"> 
+                                                    <a id="show-modal" class="find-loc"> 
                                                         <span>Find the location ...</span>
                                                         <i class="fa-solid fa-location-dot"></i>
                                                     </a>
@@ -3438,6 +3444,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
 
+  <script src="../node_modules/intro.js/intro.js"></script>
+
+
     <script>
         var userJSON = JSON.parse(localStorage.getItem('user_info'));
         var user_fullname = userJSON.firstname + ' ' + userJSON.lastname;
@@ -3450,6 +3459,38 @@
             document.getElementById('groups').style.display = "none";
             document.getElementById('events').style.display = "none";
         }
+         // Tour
+         function tourMarket(){
+        introJs().setOptions({
+        steps: [
+        {
+            element: document.querySelector('.post-property-btn'),
+            title: 'Welcome to Marketplace Page!',
+            intro: 'Click this button to post a property.',
+            position: 'bottom'
+        },
+        {
+            element: document.querySelector('#price-range'),
+            title: 'Price Range',
+            intro: 'This can filter price range of uploaded properties.',
+            position: 'bottom'
+        },
+        {
+            element: document.querySelector('.find-loc'),
+            title: 'Location',
+            intro: 'Filter location by clicking this icon',
+            position: 'right'
+        },
+        {
+            element: document.querySelector('#marketplace_listing'),
+            title: 'Propert Lists',
+            intro: 'This area is the lists of posted properties',
+            position: 'right'
+        }]
+
+        
+        }).start();
+    }
     </script>
 
     <script src="../assets/app/renderImg.js"></script>

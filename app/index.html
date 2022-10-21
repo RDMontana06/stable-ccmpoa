@@ -17,6 +17,7 @@
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/core.css">
+    <link rel="stylesheet" href="../node_modules/intro.js/introjs.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -113,130 +114,12 @@
                         <i data-feather="search"></i>
                     </a>
                 </div>
-               <!-- <div class="navbar-item is-icon drop-trigger">
-                    <a class="icon-link is-friends" href="javascript:void(0);">
-                        <i data-feather="heart"></i>
+               <div class="navbar-item is-icon drop-trigger">
+                    <a class="icon-link" title="Click to tour this page" onclick="tourFeed()" href="javascript:void(0);">
+                        <i data-feather="info"></i>
                         <span class="indicator"></span>
                     </a>
-
-                    <div class="nav-drop is-right">
-                        <div class="inner">
-                            <div class="nav-drop-header">
-                                <span>Friend requests</span>
-                                <a href="#">
-                                    <i data-feather="search"></i>
-                                </a>
-                            </div>
-                            <div class="nav-drop-body is-friend-requests">
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/bobby.jpg" alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <a href="#">Bobby Brown</a>
-                                        <span>Najeel verwick is a common friend</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-plus"></i>
-                                        </button>
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="../assets/img/avatars/dan.jpg" data-demo-src="../assets/img/avatars/dan.jpg" alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <a href="#">Dan Walker</a>
-                                        <span>You have 4 common friends</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-plus"></i>
-                                        </button>
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/nelly.png" alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <span>You are now friends with <a href="#">Nelly Schwartz</a>. Check her <a href="#">profile</a>.</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <div class="added-icon">
-                                            <i data-feather="tag"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/milly.jpg" alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <a href="#">Milly Augustine</a>
-                                        <span>You have 8 common friends</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-plus"></i>
-                                        </button>
-                                        <button class="button icon-button is-solid grey-button raised">
-                                            <i data-feather="user-minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="../assets/img/avatars/elise.jpg" data-demo-src="../assets/img/avatars/elise.jpg"alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <span>You are now friends with <a href="#">Elise Walker</a>. Check her <a href="#">profile</a>.</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <div class="added-icon">
-                                            <i data-feather="tag"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <figure class="media-left">
-                                        <p class="image">
-                                            <img src="https://via.placeholder.com/300" data-demo-src="../assets/img/avatars/edward.jpeg" alt="">
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <span>You are now friends with <a href="#">Edward Mayers</a>. Check his <a href="#">profile</a>.</span>
-                                    </div>
-                                    <div class="media-right">
-                                        <div class="added-icon">
-                                            <i data-feather="tag"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="nav-drop-footer">
-                                <a href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                </div>
 
                 <div id="account-dropdown" class="navbar-item is-account drop-trigger has-caret">
                     <div class="user-image">
@@ -342,7 +225,7 @@
         </div>
         <div class="sub-nav">
             <div class="sub-nav-tabs">
-                <div class="tabs is-centered">
+                <div class="tabs is-centered" id="navi-tab">
                     <ul>
                         <li class="is-active">
                             <a href="index.html">Feed</a>
@@ -629,7 +512,7 @@
                         <div class="column is-3 is-hidden-mobile">
                             <!-- Weather widget -->
                             <!-- /partials/widgets/weather-widget.html -->
-                            <div class="card" id="profile-card">
+                            <div class="card" id="profile-card" >
                                 <div class="pc-first">
                                     <img src="../assets/img/avatars/jenna.jpg" alt="" class="profile_img">
                                     <div class="pc-first-text">
@@ -762,9 +645,9 @@
 
                             <!-- Publishing Area -->
                             <!-- /partials/pages/feed/compose-card.html -->
-                            <div id="compose-card" class="card is-new-content">
+                            <div id="compose-card" class="card is-new-content" data-intro="This section is where you can post contents">
                                 <!-- Top tabs -->
-                                <div class="tabs-wrapper">
+                                <div class="tabs-wrapper" id="post-sec">
                                     <div class="tabs is-boxed is-fullwidth">
                                         <ul>
                                             <li class="is-active">
@@ -798,7 +681,7 @@
                                     <div class="tab-content">
                                         <!-- Compose form -->
                                         <div class="compose">
-                                            <div class="compose-form">
+                                            <div class="compose-form" data-intro="Add pictures to your posts.">
                                                 <img src="../assets/img/avatars/jenna.jpg" data-demo-src="../assets/img/avatars/jenna.jpg" alt="" class="profile_img">
                                                 <div class="control">
                                                     <textarea id="publish" class="textarea" rows="3" placeholder="Write something about you..."></textarea>
@@ -986,7 +869,7 @@
                                         <div id="extended-options" class="compose-options is-hidden">
                                             <div class="columns is-multiline is-full">
                                                 <!-- Upload action -->
-                                                <div class="column is-6 is-narrower">
+                                                <div class="column is-6 is-narrower" >
                                                     <div class="compose-option is-centered">
                                                         <i data-feather="camera"></i>
                                                         <span>Photo/Video</span>
@@ -1035,7 +918,7 @@
                                         <!-- General basic options -->
                                         <div id="basic-options" class="compose-options">
                                             <!-- Upload action -->
-                                            <div class="compose-option">
+                                            <div class="compose-option" id="upload-media">
                                                 <i data-feather="camera"></i>
                                                 <span>Media</span>
                                                 <input id="feed-upload-input-2" type="file" type="file" accept=".png, .jpg, .jpeg" onchange="readURL(this)">
@@ -5606,6 +5489,51 @@
     <script src="../assets/app/posts/editPost.js"></script>
     <script src="../assets/app/renderImg.js"></script>
     <script src="../assets/app/logoutUser.js"></script>
+    <script src="../node_modules/intro.js/intro.js"></script>
+    <script>
+        function tourFeed(){
+            introJs().setOptions({
+            steps: [
+            {
+                element: document.querySelector('#navi-tab'),
+                title: 'Welcome to CCMPOA!',
+                intro: 'This is where you can navigate to different modules.',
+                position: 'bottom'
+            },
+            {
+                element: document.querySelector('#profile-card'),
+                title: 'Profile Card',
+                intro: 'This is the profile card where you can see your followers and following. You can also visit your profile by click <b>View Profile</b>',
+                position: 'bottom'
+            },
+            {
+                element: document.querySelector('#post-sec'),
+                title: 'Post Section',
+                intro: 'This section is where you can post contents.',
+                position: 'right'
+            },
+            {
+                element: document.querySelector('#publish'),
+                intro: 'This area is where you can add text to your posts.',
+                position: 'top'
+            },
+            {
+                element: document.querySelector('#upload-media'),
+                intro: 'This button is where you can upload images',
+                position: 'top'
+            },
+            {
+                element: document.querySelector('#newsfeed-container'),
+                title: 'Newsfeed Section',
+                intro: 'This area is where you can see the newsfeed',
+                position: 'top'
+            }]
+
+            
+            }).start();
+        }
+    </script>
+
     <!-- profile js -->
 
     <!-- stories js -->

@@ -16,6 +16,7 @@
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/css/app.css">
     <link rel="stylesheet" href="../assets/css/core.css">
+    <link rel="stylesheet" href="../node_modules/intro.js/introjs.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -67,6 +68,12 @@
                 <div id="open-mobile-search" class="navbar-item is-icon">
                     <a class="icon-link is-primary" href="javascript:void(0);">
                         <i data-feather="search"></i>
+                    </a>
+                </div>
+                <div class="navbar-item is-icon drop-trigger">
+                    <a class="icon-link" title="Click to tour this page" onclick="tourEvents()" href="javascript:void(0);">
+                        <i data-feather="info"></i>
+                        <span class="indicator"></span>
                     </a>
                 </div>
                 
@@ -279,11 +286,11 @@
                             <!-- /partials/pages/events/event-options-dropdown.html -->
                             <div class="dropdown is-spaced event-options is-accent is-right dropdown-trigger">
                                 <div>
-                                    <div class="button">
+                                    <div class="button" id="event-setting">
                                         <i data-feather="settings"></i>
                                     </div>
                                 </div>
-                                <div class="dropdown-menu" role="menu">
+                                <div class="dropdown-menu"  role="menu">
                                     <div class="dropdown-content">
                                         <a href="event-details.html" class="dropdown-item">
                                             <div class="media">
@@ -2628,13 +2635,40 @@
     <script src="../assets/js/popovers-users.js"></script>
     <script src="../assets/js/popovers-pages.js"></script>
     <script src="../assets/js/lightbox.js"></script>
+    <script src="../node_modules/intro.js/intro.js"></script>
 
     <script>
         var userJSON = JSON.parse(localStorage.getItem('user_info'));
         var user_fullname = userJSON.firstname + ' ' + userJSON.lastname;
         document.querySelector('.media-content h3').innerText = user_fullname;
-    </script>
 
+        // Tour
+        function tourEvents(){
+        introJs().setOptions({
+        steps: [
+        {
+            element: document.querySelector('#left_panel'),
+            title: 'Welcome to Events Page!',
+            intro: 'This is where you can navigate to different events.',
+            position: 'bottom'
+        },
+        {
+            element: document.querySelector('.event-inner-wrap'),
+            title: 'Events Section',
+            intro: 'This area is the full details of the events',
+            position: 'bottom'
+        },
+        {
+            element: document.querySelector('#event-setting'),
+            title: 'Settings',
+            intro: 'Click this button to show additional settings for this events',
+            position: 'right'
+        }]
+
+        
+        }).start();
+    }
+    </script>
     <script src="../assets/app/renderImg.js"></script>
 
     <script src="../assets/app/admin/loadAnnouncements.js"></script>
