@@ -33,6 +33,8 @@ class User{
     public $user_role = "Affiliate";
     public $member_code;
 
+    // account requests
+    public $message;
  
     // constructor
     public function __construct($db){
@@ -378,6 +380,47 @@ class User{
     
         // return false if email does not exist in the database
         return false;
+    }
+
+    public function requestAccount() {
+        $sql = "INSERT INTO account_requests (email, message) VALUES (?, ?);";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindParam(1, $this->userEmail);
+        $stmt->bindParam(2, $this->message);
+
+        // execute the query
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        $to = $this->userEmail;
+
+        $subject = 'We Received Your Request!';
+
+        $message = '<p>We have received your request for an account. Our team will review your request and will update you within 24 hours of receiving this email.</p>';
+        $message .= '<p>Thank you so much and have a nice day!<br>';
+
+        $headers = "From: CCMPOA <no-reply@ccmpoa.org>\r\n";
+        $headers .= "Content-type: text/html\r\n";
+
+        mail($to, $subject, $message, $headers);
+
+        $to = "cpelitones@ad-voca.com";
+
+        $subject = 'Someone Requested An Account';
+
+        $message = '<p>Someone sent a new account request. Please review their message and their email.</p>';
+        $message .= '<p>You can go to <a href="https://ccmpoa.org/admin/">your admin portal</a> to approve the request.</p><br>';
+        $message .= '<p>Email: <b>'. $this->userEmail .'</b> </p><br>';
+        $message .= '<p>Message: <b>'. $this->message .'</b> </p><br>';
+
+        $headers = "From: CCMPOA <no-reply@ccmpoa.org>\r\n";
+        $headers .= "Content-type: text/html\r\n";
+
+        mail($to, $subject, $message, $headers);
+
+        return true;
     }
 
 

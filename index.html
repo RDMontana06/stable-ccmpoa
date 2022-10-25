@@ -102,9 +102,7 @@
                     class="button is-solid primary-button is-fullwidth raised"
                     style="padding: 0px"
                     id="loginbtn" />
-                  <a class="button modal-trigger is-fullwidth is-small" data-modal="request-modal"
-                    >Request Account</a
-                  >
+                  <a class="button modal-trigger is-fullwidth is-small" data-modal="request-modal">Request Account</a>
                 </div>
               </form>
             </div>
@@ -132,7 +130,7 @@
             <div class="card-body">
               <div class="field is-autocomplete">
                 <div class="control has-icon">
-                  <input type="email" class="input" placeholder="Email Address" />
+                  <input type="email" class="input" placeholder="Email Address" id="request-email" />
                   <div class="form-icon">
                     <i data-feather="mail"></i>
                   </div>
@@ -141,12 +139,12 @@
               <div class="field">
                 <label class="label">Message</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="Message..."></textarea>
+                  <textarea class="textarea" placeholder="Message..." id="request-message"></textarea>
                 </div>
               </div>
 
               <div class="action has-text-centered">
-                <button type="button" class="button is-solid accent-button raised">
+                <button type="button" class="button is-solid accent-button raised" id="request-submit">
                   Send Request
                 </button>
               </div>
@@ -192,6 +190,7 @@
     <script src="assets/js/lightbox.js"></script>
     <script src="assets/app/script.js"></script>
     <script src="assets/app/login.js"></script>
+    <script src="assets/app/requestAccount.js"></script>
     <script src="assets/js/notify-js.js"></script>
     <script>
       if (window.location.hash == '#success') {
