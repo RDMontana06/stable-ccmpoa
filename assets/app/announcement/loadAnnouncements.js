@@ -79,6 +79,7 @@ function loadAnnouncements() {
             // $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
             // login_form.find('input').val('');
             if(result.responseJSON.message === "Access denied.") {
+                setCookie("jwt", "", );
                 window.location.href = "/#unauthorized";
             } else {
                 new NotifyJS({
