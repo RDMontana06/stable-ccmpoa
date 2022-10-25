@@ -2,6 +2,11 @@
 // clearResponse();
 
 // trigger when login form is submitted
+var jwt = getCookie('jwt');
+if (jwt != "") {
+    window.location.href = "/app"
+}
+
 $(document).on('submit', '#login_form', function(){
  
     // get form data
