@@ -137,21 +137,6 @@ function loadAnnouncements() {
 
                             </div>
                         </div>
-                        <div class="event-participants">
-                            <div class="participants-group">
-                                <img src="../assets/img/avatars/jenna.jpg" data-demo-src="../assets/img/avatars/jenna.jpg" data-user-popover="0" alt="">
-                                <img src="../assets/img/avatars/dan.jpg" data-demo-src="../assets/img/avatars/dan.jpg" data-user-popover="4" alt="">
-                                <img src="../assets/img/avatars/elise.jpg" data-demo-src="../assets/img/avatars/elise.jpg" data-user-popover="5" alt="">
-                                <img src="../assets/img/avatars/stella.jpg" data-demo-src="../assets/img/avatars/stella.jpg" data-user-popover="7" alt="">
-                            </div>
-                            <div class="participants-text">
-                                <p>
-                                    <a href="#">You</a>,
-                                    <a href="#">David</a>
-                                </p>
-                                <p>and 23 more are participating</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 `
