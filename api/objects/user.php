@@ -35,8 +35,7 @@ class User{
 
     // account requests
     public $message;
-    public $req_id; 
-
+ 
     // constructor
     public function __construct($db){
         $this->conn = $db;
@@ -182,65 +181,6 @@ class User{
         return false;
     }
 
-    // setup new users info
-    function profileSetUp(){
-    
-        // insert query
-        $query = "UPDATE " . $this->table_name . " SET
-                        password = :password,
-                        profile_img = :profile_img
-                    WHERE id = :id";
-
-        // prepare the query
-        $stmt = $this->conn->prepare($query);
-    
-        // sanitize
-        $this->password  = htmlspecialchars(strip_tags($this->password));
-        $this->profile_img = htmlspecialchars(strip_tags($this->profile_img));
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        
-        // bind the values
-        $stmt->bindParam(':profile_img', $this->profile_img);
-        $stmt->bindParam(':id', $this->id);
-        // hash the password before saving to database
-        $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
-        $stmt->bindParam(':password', $password_hash);
-    
-        // execute the query, also check if query was successful
-        if($stmt->execute()){
-            $this->user_id = $this->conn->lastInsertId();
-
-            $query2 = "INSERT INTO company_info " . "
-                SET
-                    user_id = :user_id,
-                    firstname = :firstname,
-                    lastname = :lastname,
-                    phone = :phone";
-            
-            // prepare query
-            $stmt2 = $this->conn->prepare($query2);
-
-            // sanitize
-            $this->id      = htmlspecialchars(strip_tags($this->id));
-            $this->firstname     = htmlspecialchars(strip_tags($this->firstname));
-            $this->lastname  = htmlspecialchars(strip_tags($this->lastname));
-            $this->phone     = htmlspecialchars(strip_tags($this->phone));
-        
-            // bind the values
-            $stmt2->bindParam(':user_id', $this->id);
-            $stmt2->bindParam(':firstname', $this->firstname);
-            $stmt2->bindParam(':lastname', $this->lastname);
-            $stmt2->bindParam(':phone', $this->phone);
-
-            if ($stmt2->execute()) {
-                return true;
-            }
-        }
-    
-        return false;
-    }
-    
-
 
     // approve user
     public function approveUser(){
@@ -301,7 +241,23 @@ class User{
             $this->role = $row['role'];
             $this->profile_img = $row['profile_img'];
 
-            return true;
+            $queryCompanyInfo = "SELECT firstname, lastname, phone FROM " . $this->company_info . " WHERE user_id = " . $this->id . '';
+            $stmt2 = $this->conn->prepare( $queryCompanyInfo );
+            $stmt2->execute();
+    
+            // get number of rows
+            $num2 = $stmt2->rowCount();
+            if($num2>0){
+    
+                // get record details / values
+                $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
+                $this->firstname = $row2['firstname'];
+                $this->lastname = $row2['lastname'];
+                $this->phone = $row2['phone'];
+
+                // return true because email exists in the database
+                return true;
+            }
             
         }
     
@@ -343,23 +299,7 @@ class User{
             if ($row['status'] == 1) {
                 return false;
             } else {
-                $queryCompanyInfo = "SELECT firstname, lastname, phone FROM " . $this->company_info . " WHERE user_id = " . $this->id . '';
-                $stmt2 = $this->conn->prepare( $queryCompanyInfo );
-                $stmt2->execute();
-        
-                // get number of rows
-                $num2 = $stmt2->rowCount();
-                if($num2>0){
-        
-                    // get record details / values
-                    $row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
-                    $this->firstname = $row2['firstname'];
-                    $this->lastname = $row2['lastname'];
-                    $this->phone = $row2['phone'];
-
-                    // return true because email exists in the database
-                    return true;
-                }
+                return true;
             }
         }
     
@@ -481,113 +421,6 @@ class User{
         mail($to, $subject, $message, $headers);
 
         return true;
-    }
-
-    public function readAllRequestedAccount() {
-        $query = "SELECT * FROM account_requests WHERE status = 0 ORDER BY date_requested DESC";
-        // prepare the query
-        $stmt = $this->conn->prepare($query);
-
-        if ($stmt->execute()) {
-            return $stmt;
-        }
-    }
-
-
-    public function approveRequestedAccount() {
-        // if no posted password, do not update the password
-        $query = "UPDATE account_requests SET status = 1 WHERE id = :id";
-    
-        // prepare the query
-        $stmt = $this->conn->prepare($query);
-    
-        // unique ID of record to be edited
-        $stmt->bindParam(':id', $this->req_id);
-    
-        // execute the query
-        if($stmt->execute()){
-            // insert query
-            $temp_password = bin2hex(random_bytes(8));
-
-            $query = "INSERT INTO " . $this->table_name . "
-            SET
-                email = :email,
-                password = :password,
-                role = :user_role,
-                status = 0";
-
-            // prepare the query
-            $stmt = $this->conn->prepare($query);
-
-            // sanitize
-            $this->email     = htmlspecialchars(strip_tags($this->email));
-            $temp_password  = htmlspecialchars(strip_tags($temp_password));
-            $this->user_role = htmlspecialchars(strip_tags($this->user_role));
-
-            // bind the values
-            $stmt->bindParam(':email', $this->email);
-            $stmt->bindParam(':user_role', $this->user_role);
-
-            // hash the password before saving to database
-            $password_hash = password_hash($temp_password, PASSWORD_BCRYPT);
-            $stmt->bindParam(':password', $password_hash);
-
-            if($stmt->execute()){
-                $to = $this->email;
-
-                $subject = 'Welcome to CCMPOA';
-
-                $message = '<p>Our team reviewed your request and we are heppy to announce that your request for an account has been approved.</p>';
-                $message .= '<p>Here are your credentials for your account: <br>';
-                $message .= 'Username: <b>'. $this->email .'</b><br>';
-                $message .= 'Password: <b>'. $temp_password .'</b></p><br>';
-
-                $message .= '<p>You will be asked for additional information on your first login and you will be able to set your new password. Just take note to not share this email to anyone.</p><br>';
-                $message .= '<p>Once again! Welcome to CCMPOA.</p><br>';
-
-                $headers = "From: CCMPOA <no-reply@ccmpoa.org>\r\n";
-                $headers .= "Content-type: text/html\r\n";
-
-                mail($to, $subject, $message, $headers);
-
-                return true;
-            }
-
-        }
-    
-        return false;
-    }
-
-    public function declineRequestedAccount() {
-        // if no posted password, do not update the password
-        $query = "DELETE FROM account_requests WHERE id = :id";
-    
-        // prepare the query
-        $stmt = $this->conn->prepare($query);
-    
-        // unique ID of record to be edited
-        $stmt->bindParam(':id', $this->req_id);
-
-        // execute the query
-        if($stmt->execute()){
-            $to = $this->email;
-
-            $subject = 'Your account request has been declined!';
-
-            $message = '<p>Thank you for your interest to be part of CCMPOA. After our review of your application, we are soory tell you that your request has been declined.</p><br>';
-            $message .= '<p>You can still request for an account after 7 days. Thank you!</p>';
-
-            $headers = "From: CCMPOA <no-reply@ccmpoa.org>\r\n";
-            $headers .= "Content-type: text/html\r\n";
-
-            mail($to, $subject, $message, $headers);
-
-
-            return true;
-        }
-
-        return false;
-
     }
 
 

@@ -22,38 +22,48 @@ $user = new User($db);
 $data = json_decode(file_get_contents("php://input"));
  
 // set product property values
-$user->id = $data->id;
 $user->firstname = $data->firstname;
 $user->lastname = $data->lastname;
+$user->email = $data->email;
 $user->password = $data->password;
 $user->phone = $data->phone;
 $user->profile_img = $data->profile_img;
+$user->member_code = $data->member_code;
  
 // create the user
-if(
-    !empty($user->firstname) &&
-    !empty($user->id) &&
-    !empty($user->lastname) &&
-    !empty($user->password) &&
-    !empty($user->phone) &&
-    !empty($user->profile_img) &&
-    $user->profileSetUp()
-){
-    // set response code
-    http_response_code(200);
-
-    // display message: user was created
-    echo json_encode(array("message" => "Profile Complete. Please login using your new password!"));
-}
-    
-// message if unable to create user
-else{
-    
+if (empty($user->member_code) || $user->checkMemberCode()) {
+    if(
+        !empty($user->firstname) &&
+        !empty($user->lastname) &&
+        !empty($user->email) &&
+        !empty($user->password) &&
+        !empty($user->phone) &&
+        !empty($user->profile_img) &&
+        $user->create()
+    ){
+        if ($user->useMemberCode()) {
+            // set response code
+            http_response_code(200);
+        
+            // display message: user was created
+            echo json_encode(array("message" => "User was created. You can now login"));
+        }
+    }
+     
+    // message if unable to create user
+    else{
+     
+        // set response code
+        http_response_code(400);
+     
+        // display message: unable to create user
+        echo json_encode(array("message" => "Unable to create user."));
+    }
+} else {
     // set response code
     http_response_code(400);
-    
+     
     // display message: unable to create user
-    echo json_encode(array("message" => "Unable to create user."));
+    echo json_encode(array("message" => "Member Code doesn't exist. Please contact admin to request a new one."));
 }
-
 ?>

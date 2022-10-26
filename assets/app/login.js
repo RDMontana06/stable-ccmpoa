@@ -24,20 +24,9 @@ $(document).on('submit', '#login_form', function(){
         },
         success : function(result){
             // store jwt to cookie
-            console.log(result);
-            // setCookie("jwt", result.jwt, 1);
-            // localStorage.setItem("user_info", JSON.stringify(result.data))
-            // validateSignin()
-            if (result.message === "New User") {
-                var userID = result.id;
-                window.location.href = '/account-setup.html?id=' + userID;
-
-            } else if (result.message === "Successful login.") {
-                setCookie("jwt", result.jwt, 1);
-                localStorage.setItem("user_info", JSON.stringify(result.data))
-                validateSignin()
-            }
-            
+            setCookie("jwt", result.jwt, 1);
+            localStorage.setItem("user_info", JSON.stringify(result.data))
+            validateSignin()
         },
         error: function(result){
             // on error, tell the user login has failed & empty the input boxes
@@ -67,7 +56,7 @@ function validateSignin() {
     $.post("api/validate_token.php", JSON.stringify({ jwt:jwt })).done(function(res) {
         localStorage.setItem("data", JSON.stringify(res.data));
 
-        if (res.data.role === "Admin") {
+        if (res.data.role === "admin") {
             window.location.href = "app/index.html"
         } else if (res.data.role === "Homeowner" || res.data.role === "Board Member" || res.data.role === "Affiliate" || res.data.role === "client") {
             window.location.href = "app/index.html";
