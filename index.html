@@ -192,14 +192,13 @@
     <script src="assets/app/script.js"></script>
     <script src="assets/app/login.js"></script>
     <script src="assets/app/requestAccount.js"></script>
-
     <script src="assets/js/notify.js"></script>
-
+    
     <script>
-      if (window.location.hash == '#success') {
+      if (window.location.hash == '#accountComplete') {
         new NotifyJS(
           {
-            message: 'Registration Successful!',
+            message: 'Account Setup Complete! Please login using your new password.',
             duration: 5000,
           },
           {
