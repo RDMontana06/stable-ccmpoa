@@ -1,5 +1,6 @@
 // $('#loginbtn .fa-spin').hide();
 // clearResponse();
+
 // trigger when login form is submitted
 var requestSubmit = document.getElementById('request-submit');
 
@@ -18,7 +19,6 @@ requestSubmit.addEventListener('click', () => {
         contentType : 'application/json',
         data : JSON.stringify(form_data),
         beforeSend: function() {
-            // loader();
             console.log("Sending..")
         },
         success : function(result){
@@ -43,19 +43,16 @@ requestSubmit.addEventListener('click', () => {
             // on error, tell the user login has failed & empty the input boxes
             // $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
             // login_form.find('input').val('');
-            //document.getElementById('request-modal').remove()
-            bulmaToast.toast({ message: 'Email was already taken, Please try again.', type: 'is-danger', dismissible: true, pauseOnHover: true, })
-            // new NotifyJS({
-            //     message: result.responseJSON.message,
-            //     duration: 5000
-            // },
-            // {
-            //     color: 'rgb(245,233,23)',
-            //     textColor: 'red',
-            //     fontFamily: 'Lexend Deca',
-            //     customCSSBox: `border-bottom: 3px solid red; background-color: white;`
-            // })
-            // location.reload();
+            new NotifyJS({
+                message: result.responseJSON.message,
+                duration: 5000
+            },
+            {
+                color: 'rgb(245,233,23)',
+                textColor: 'red',
+                fontFamily: 'Lexend Deca',
+                customCSSBox: `border-bottom: 3px solid red; background-color: white;`
+            })
 
         }
     });
