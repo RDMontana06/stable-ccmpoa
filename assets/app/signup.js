@@ -1,15 +1,20 @@
+const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+});
+
+var userID = params.id;
+if (userID === null) {
+    window.location.href = '/';
+}
 
 // trigger when registration form is submitted
 $('#signupbtn').click(function(){
-    
     var firstname = document.getElementById('firstname').value;
     var lastname = document.getElementById('lastname').value;
-    var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var cpassword = document.getElementById('cpassword').value;
     var phone = document.getElementById('phone').value;
     var uploadPreview = document.getElementById('upload-preview');
-    var member_code = document.getElementById('code').value;
     var profileImgFile;
     var profileName = 'default.png';
 
@@ -20,14 +25,13 @@ $('#signupbtn').click(function(){
 
     // get form data
     var form_data = {
+        id : userID,
         firstname : firstname,
         lastname : lastname,
-        email : email,
         password : password,
         cpassword : cpassword,
         phone : phone,
-        profile_img : profileName,
-        member_code : member_code
+        profile_img : profileName
     }
 
     if(false){
@@ -70,11 +74,11 @@ $('#signupbtn').click(function(){
                         },
                         success: function(php_script_response){
                             console.log(php_script_response); // <-- display response from the PHP script, if any
-                            window.location.href = 'index.html#success';
+                            window.location.href = 'index.html#accountComplete';
                         }
                     });
                 } else {
-                    window.location.href = 'index.html#success';
+                    window.location.href = 'index.html#accountComplete';
                 }
 
                 // if response is a success, tell the user it was a successful sign up & empty the input boxes
