@@ -1,5 +1,6 @@
 // $('#loginbtn .fa-spin').hide();
 // clearResponse();
+
 // trigger when login form is submitted
 var requestSubmit = document.getElementById('request-submit');
 
@@ -18,7 +19,6 @@ requestSubmit.addEventListener('click', () => {
         contentType : 'application/json',
         data : JSON.stringify(form_data),
         beforeSend: function() {
-            // loader();
             console.log("Sending..")
         },
         success : function(result){

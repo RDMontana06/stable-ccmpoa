@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@creativebulma/bulma-tooltip": "^1.2.0",
-    "bulma-toast": "^2.4.1",
     "intro.js": "^6.0.0"
   }
 }
