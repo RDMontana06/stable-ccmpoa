@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 02:58 PM
+-- Generation Time: Oct 20, 2022 at 02:36 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ccmpoa_api`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `account_requests`
---
-
-CREATE TABLE `account_requests` (
-  `id` int(11) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `message` text NOT NULL,
-  `date_requested` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `account_requests`
---
-
-INSERT INTO `account_requests` (`id`, `email`, `message`, `date_requested`, `status`) VALUES
-(1, 'mb@gmail.com', '1234', '2022-10-26 07:34:14', 0);
 
 -- --------------------------------------------------------
 
@@ -62,7 +41,7 @@ CREATE TABLE `announcement` (
 --
 
 INSERT INTO `announcement` (`ann_id`, `ann_name`, `ann_date`, `ann_time`, `ann_description`, `ann_address`) VALUES
-(13, 'Sample Event', '2022-10-26', '22:01:00', 'Surigao City Music Festival', 'Surigao City');
+(12, 'Sample Event', '2022-10-04', '18:15:00', 'UPDATE: This is just a sample event where all of the people in the world sings a happy birthday song', 'Manila');
 
 -- --------------------------------------------------------
 
@@ -140,8 +119,7 @@ INSERT INTO `company_info` (`id`, `user_id`, `firstname`, `lastname`, `email`, `
 (46, 69, 'Mikey', 'Bustos', 'mb@gmail.com', '1234'),
 (47, 70, 'walalang', 'walalang', 'walalng@gmail.com', '1234'),
 (48, 71, 'Escape', 'Plan', 'ep@gmail.com', '1234'),
-(49, 72, 'Eric', 'Santos', 'ericsantos@gmail.com', '1234'),
-(50, 82, 'James', 'Caraan', '', '09054576953');
+(49, 72, 'Eric', 'Santos', 'ericsantos@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -170,8 +148,7 @@ INSERT INTO `marketplace` (`mp_id`, `mp_ownerID`, `mp_ownerName`, `mp_name`, `mp
 (25, 57, 'Jimmy Neutron', 'This is just a sample', 'I just want this sample', 20000, 'Davao', 'Copy of Copy of Fall 2022 Class Product Cards (2).png', '2022-09-30 01:46:55'),
 (26, 57, 'Jimmy Neutron', 'Land Master', 'This is just a sample', 2000, 'Manila City', 'maria-gisladottir-jUKQcocX17c-unsplash.jpg', '2022-09-30 01:55:37'),
 (27, 57, 'Jimmy Neutron', 'Sample Product For Sale', 'This is product is just a sample and I just want to test if this works.', 200, 'Sample', 'Right Side.jpg', '2022-09-30 03:03:06'),
-(28, 57, 'Jimmy Neutron', 'test', 'sample', 20, 'Surigao', 'Copy of Copy of Fall 2022 Class Product Cards (4).png', '2022-09-30 03:05:51'),
-(29, 67, 'Mikey Bustos', 'This is just a sample', 'Sample website', 200, 'Surigao City', 'Copy of Copy of Fall 2022 Class Product Cards (1).png', '2022-10-25 03:48:35');
+(28, 57, 'Jimmy Neutron', 'test', 'sample', 20, 'Surigao', 'Copy of Copy of Fall 2022 Class Product Cards (4).png', '2022-09-30 03:05:51');
 
 -- --------------------------------------------------------
 
@@ -196,8 +173,7 @@ CREATE TABLE `member_code` (
 INSERT INTO `member_code` (`id`, `user_role`, `member_code`, `date_generated`, `user_name`, `user_email`, `status`) VALUES
 (13, 'Board Member', 'rujfy6u5', '2022-09-30 10:09:39', 'Escape Plan', 'ep@gmail.com', '1'),
 (14, 'Homeowner', '74y7g5vh', '2022-09-30 10:22:27', '', '', '0'),
-(15, 'Board Member', '0ypvud97', '2022-09-30 10:23:38', 'Eric Santos', 'ericsantos@gmail.com', '1'),
-(16, 'Homeowner', '3v0wpe35', '2022-10-25 12:07:52', '', '', '0');
+(15, 'Board Member', '0ypvud97', '2022-09-30 10:23:38', 'Eric Santos', 'ericsantos@gmail.com', '1');
 
 -- --------------------------------------------------------
 
@@ -275,8 +251,7 @@ INSERT INTO `post_images` (`post_image_id`, `post_id`, `post_imageName`) VALUES
 (23, 103, 'VVYjl6xLOT.jpg'),
 (24, 104, 'dnFRgYNkqV.jpg'),
 (25, 105, 'OFwDuXXNEI.jpg'),
-(26, 106, 'lUyD5fIPQq.jpg'),
-(27, 107, '');
+(26, 106, 'lUyD5fIPQq.jpg');
 
 -- --------------------------------------------------------
 
@@ -316,6 +291,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`, `profile_img`, `status`)
 (44, 'jd@gmail.com', '$2y$10$2THO1ZdR0fg6DKqdJ3252ukB28FBOYeaKY5CLMqo/RQFNgKlR8/vm', 'Board Member', '', 0),
 (45, 'admin@ccmpoa.org', '$2y$10$Ow45IizbmxfaByKgi.14L.iGuRL6V1JP1QNcZqsXQi6en4p0t7/2W', 'Board Member', '', 0),
 (46, 'ceta@phil.com', '$2y$10$jDXugDXIflZXdaoiBrtDDuUJ1X.eqvHl4YIQQ/2wpC2cRKZ6.QSGi', 'Board Member', '', 0),
+(47, 'pelitoneschristian2@gmail.com', '$2y$10$Nf6GirGSRp.9XdbrOXC34uuWJSs4c1Cx1dcKqiKGPuLwgamERtuTK', 'Board Member', '', 0),
 (48, 'jamiebutler@gmail.com', '$2y$10$6NTp9p3f7CJgNo.uFv3wOuojntIxoKF2hLJD2muXGKlNCeTnLsBLa', 'Board Member', '', 0),
 (49, 'jerryboi@gmail.com', '$2y$10$mTPKZgjTrmNO4BO7NSIJn.P.A65YyN7jX54PcOtK.LoyYZXl8yQS2', 'Board Member', '', 0),
 (51, 'masterchristian@gmail.com', '$2y$10$f2c5LXOtoqPFD6YEmYeBtOUsKYmtH/cwHZ/4DE3H3ysvIH5sJsxr6', 'Board Member', '', 0),
@@ -338,18 +314,11 @@ INSERT INTO `users` (`id`, `email`, `password`, `role`, `profile_img`, `status`)
 (69, 'mb@gmail.com', '$2y$10$DKWxpbiIln.BJoILn3ngWeFgBkxfVQJdCVttnRkM2P3QwCYJSy6pe', 'Board Member', 'p3VWQbJJwA.jpg', 0),
 (70, 'walalng@gmail.com', '$2y$10$m1P9G4KBXnHsisUzCzslPuwfDVmij3RNTwehyN4jv6J76MmejLx0y', 'Board Member', 'vWxRwdQ1Zw.jpg', 0),
 (71, 'ep@gmail.com', '$2y$10$zJ0UMTI/u4AwShiX7htQ1OtMrQbXYNVUKdWx3uAevy4dfWxNrzKWu', 'Board Member', 'vxd3IFANla.jpg', 0),
-(72, 'ericsantos@gmail.com', '$2y$10$SxjS14.RwnKgy/Y7G4ClMePzvWDE5C2/VzdUN2yimoRbaAz17sNla', 'Board Member', 'Tff7w060Xy.jpg', 0),
-(82, 'lolo@gmail.com', '$2y$10$yTTaKSvKb05uRRhCh2gQQOm12oc0PP10ETohSBZedWO1BgWYgtmNa', 'Board Member', 'QePDLysWuL.jpg', 0);
+(72, 'ericsantos@gmail.com', '$2y$10$SxjS14.RwnKgy/Y7G4ClMePzvWDE5C2/VzdUN2yimoRbaAz17sNla', 'Board Member', 'Tff7w060Xy.jpg', 0);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `account_requests`
---
-ALTER TABLE `account_requests`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `announcement`
@@ -410,16 +379,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `account_requests`
---
-ALTER TABLE `account_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `ann_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ann_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -431,31 +394,31 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `company_info`
 --
 ALTER TABLE `company_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `marketplace`
 --
 ALTER TABLE `marketplace`
-  MODIFY `mp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `mp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `member_code`
 --
 ALTER TABLE `member_code`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `post_images`
 --
 ALTER TABLE `post_images`
-  MODIFY `post_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `post_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `pwdreset`
@@ -467,7 +430,7 @@ ALTER TABLE `pwdreset`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
