@@ -73,10 +73,10 @@ if($email_exists && password_verify($data->password, $user->password)){
              );
     } else {
         // set response code
-        http_response_code(401);
+        http_response_code(200);
     
         // tell the user login failed
-        echo json_encode(array("message" => "Your account is waiting for approval."));
+        echo json_encode(array("message" => "New User", "id" => $user->id));
     }
  
 } else {
