@@ -90,7 +90,7 @@ function renderPosts() {
             // login_form.find('input').val('');
             if(result.responseJSON.message === "Access denied.") {
                 setCookie("jwt", "", );
-                window.location.href = "/#unauthorized";
+                window.location.href = "/";
             } else {
                 new NotifyJS({
                     message: result.responseJSON.message,
@@ -184,9 +184,7 @@ function addDataToTemplate(content, date, id, totalComments, totalLikes, userID,
                 </div>
                 `+ (post_imageName != '' && post_imageName != null ?
                     `<div class="post-image">
-                        <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="assets/img/demo/unsplash/1.jpg" href="../assets/img/posts/4th.jpg" data-demo-href="assets/img/demo/unsplash/1.jpg">
-                            <img src="../assets/img/post_images/`+ post_imageName +`" alt="">
-                        </a>
+                        <img src="../assets/img/post_images/`+ post_imageName +`" alt="">
                     </div>` : ``
                 ) +`
                 <!-- Post actions -->

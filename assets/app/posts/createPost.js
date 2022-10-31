@@ -35,7 +35,7 @@ publishBtn.addEventListener('click', () => {
     var jwt = getCookie('jwt');
 
     if (uploadPreview != null) {
-        postAttachedImg = dataURLtoFile(uploadPreview.src, makeid(10) + '.jpg')
+        postAttachedImg = dataURLtoFile(uploadPreview.src, makeid(20) + '.jpg')
         postAttachedImgName = postAttachedImg.name;
     }
 

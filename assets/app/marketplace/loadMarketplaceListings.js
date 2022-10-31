@@ -113,7 +113,7 @@ function loadMarketplaceListings() {
             // login_form.find('input').val('');
             if(result.responseJSON.message === "Access denied.") {
                 setCookie("jwt", "", );
-                window.location.href = "/#unauthorized";
+                window.location.href = "/";
             } else {
                 new NotifyJS({
                     message: result.responseJSON.message,

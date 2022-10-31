@@ -44,7 +44,7 @@ requestSubmit.addEventListener('click', () => {
             // $('#response').html("<div class='alert alert-danger'>Login failed. Email or password is incorrect.</div>");
             // login_form.find('input').val('');
             //document.getElementById('request-modal').remove()
-            bulmaToast.toast({ message: 'Email was already taken, Please try again.', type: 'is-danger', dismissible: true, pauseOnHover: true, })
+            bulmaToast.toast({ message: result.responseJSON.message, type: 'is-danger', dismissible: true, pauseOnHover: true, })
             // new NotifyJS({
             //     message: result.responseJSON.message,
             //     duration: 5000
