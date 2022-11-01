@@ -5453,9 +5453,9 @@
         document.querySelector('.media-content h3').innerText = user_fullname;
         document.getElementById('user_role').innerText = userJSON.role;
 
-        if (userJSON.role === 'Affiliate') {
-            window.location.href = 'marketplace.html'
-        } 
+        if (userJSON.role != 'Admin' && userJSON.role != 'Developer') {
+            document.getElementById("admin_panel").style.display = "none";
+        }
 
     </script>
     <script src="../assets/app/posts/createPost.js"></script>

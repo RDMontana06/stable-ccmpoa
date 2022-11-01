@@ -2646,6 +2646,10 @@
         
         }).start();
     }
+
+    if (userJSON.role != 'Admin' && userJSON.role != 'Developer') {
+            document.getElementById("admin_panel").style.display = "none";
+        }
     </script>
     <script src="../assets/app/renderImg.js"></script>
 

@@ -334,12 +334,8 @@
         var user_fullname = userJSON.firstname + ' ' + userJSON.lastname;
         document.querySelector('.media-content h3').innerText = user_fullname;
 
-        if (userJSON.role === 'Affiliate') {
-            document.querySelector('.post-property-btn').style.display = "none";
-            document.getElementById('feed').style.display = "none";
-            document.getElementById('friends').style.display = "none";
-            document.getElementById('groups').style.display = "none";
-            document.getElementById('events').style.display = "none";
+        if (userJSON.role != 'Admin' && userJSON.role != 'Developer') {
+            document.getElementById("admin_panel").style.display = "none";
         }
     </script>
     <script src="../assets/app/renderImg.js"></script>

@@ -79,7 +79,7 @@ class User{
     }
 
     function verifyUserRole() {
-        $query = "SELECT * FROM users WHERE id = :id AND role != 'Affiliate' AND role != 'Homeowner'";
+        $query = "SELECT * FROM users WHERE id = :id AND role = 'Admin' OR role = 'Developer'";
 
         // prepare the query
         $stmt = $this->conn->prepare($query);

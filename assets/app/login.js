@@ -69,7 +69,7 @@ function validateSignin() {
 
         if (res.data.role === "Admin") {
             window.location.href = "app/index.html"
-        } else if (res.data.role === "Homeowner" || res.data.role === "Board Member" || res.data.role === "Affiliate" || res.data.role === "client") {
+        } else if (res.data.role === "Homeowner" || res.data.role === "Board Member" || res.data.role === "Affiliate" || res.data.role === "Developer") {
             window.location.href = "app/index.html";
         }
         
