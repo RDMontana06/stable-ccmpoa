@@ -49,10 +49,11 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $user_item = array(
                     "id" => $row['id'],
-                    "name" =>  $row['name'],
                     "email" =>  $row['email'],
-                    "companyName" =>  $row['companyName'],
-                    "status" =>  $row['status']
+                    "firstname" =>  $row['firstname'],
+                    "lastname" =>  $row['lastname'],
+                    "role" =>  $row['role'],
+                    "phone" =>  $row['phone'],
                 );
         
                 array_push($user_arr["users"], $user_item);
