@@ -44,7 +44,7 @@ class User{
 
     // read all users
     function readAllUsers() {
-        $query = "SELECT users.id as id, users.email as email, users.role as role, company_info.firstname as firstname, company_info.lastname as lastname, company_info.phone as phone FROM users LEFT JOIN company_info ON users.id = company_info.user_id";
+        $query = "SELECT users.id as id, users.email as email, users.role as role, company_info.firstname as firstname, company_info.lastname as lastname, company_info.phone as phone FROM users LEFT JOIN company_info ON users.id = company_info.user_id WHERE users.role != 'Developer'";
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
